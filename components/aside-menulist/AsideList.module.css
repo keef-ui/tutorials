@@ -1,0 +1,38 @@
+ .menu a {
+    font-weight: 600;
+    height: 3.125rem;
+    display: inline-block;
+    line-height: 3.125rem;
+    ;
+}
+
+
+.extra_content {
+    padding-left: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    position: relative;
+
+}
+
+.extra_content::before {
+    position: absolute;
+    width: 2px;
+    height: 16px;
+    background-color: hsl(var(--palette-red-30));
+    margin-left: 1rem;
+
+    /* left: 0;
+        right: 0; */
+    text-align: center;
+    display: block;
+    content: '';
+    top: -10px;
+
+
+}
+
+
+.menu li {
+    padding-bottom: 0.3rem;
+}

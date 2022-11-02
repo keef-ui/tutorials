@@ -1,0 +1,30 @@
+.left_aside {
+    position: relative;
+}
+
+.left_aside aside {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    width: 19rem;
+    height: 100%;
+    padding-right: 32px;
+    padding-left: 16px;
+    transition: transform 400ms ease 0s, visibility 400ms ease 0s;
+}
+
+.left_side aside a {
+    font-weight: 600;
+    height: 3.125rem;
+    display: inline-block;
+    line-height: 3.125rem;
+    ;
+}
+
+
+.left_aside aside {
+    padding-top: var(--space-5);
+}
