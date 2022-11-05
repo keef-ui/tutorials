@@ -16,7 +16,10 @@ import {
   getArticleFromSlug,
 } from "../../lib/mdxHelper";
 
+const Test= ()=> <>This is my TEST Componnet 12345678 </>
+
 export default function Blog({ post: { source, frontmatter } }) {
+ console.log(frontmatter.publishedAt);
   return (
     <React.Fragment>
       <Head>
@@ -29,7 +32,7 @@ export default function Blog({ post: { source, frontmatter } }) {
           {frontmatter.readingTime}
         </p>
         <div className="content">
-          <MDXRemote {...source} components={{ }} />
+          <MDXRemote {...source} components={{Test }} />
         </div>
       </div>
     </React.Fragment>
