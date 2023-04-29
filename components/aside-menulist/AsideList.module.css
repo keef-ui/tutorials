@@ -17,9 +17,9 @@
 
 .extra_content::before {
     position: absolute;
-    width: 2px;
+    width: 1px;
     height: 16px;
-    background-color: hsl(var(--palette-red-30));
+    background-color: hsl(var(--fourthBrandColor));
     margin-left: 1rem;
 
     /* left: 0;

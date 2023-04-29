@@ -18,15 +18,24 @@
   /* Legacy iOS */
 }
 
+
+
+  
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'Varela Round', Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: hsl(var(--tertiary));
-    color: hsl(var(--secondary));
+    background-color: hsl(var(--body-bg));
+    color: hsl(var(--palette-gray-00));
+    /* font-size: 1.12rem; */
+    
 }
+
+
+
+ 
 
 a {
   color: inherit;
@@ -136,9 +145,16 @@ h6 {
   isolation: isolate;
 }
 
+/* hsl(186deg 100% 2%); */
 :root {
-  --base-hue-gray: 223;
-  --base-gray: var(--base-hue-gray), 15%;
+
+  --base-hue-customgray: 186;
+  --base-customgray: var(--base-hue-customgray), 100%;
+  --palette-customgray-98: var(--base-customgray), 2%;
+
+
+  --base-hue-gray: 0;
+  --base-gray: var(--base-hue-gray), 0%;
   --palette-gray-00: var(--base-gray), 100%;
   --palette-gray-01: var(--base-gray), 99%;
   --palette-gray-01-5: var(--base-gray), 98.5%;
@@ -162,6 +178,7 @@ h6 {
   --palette-gray-65: var(--base-gray), 35%;
   --palette-gray-70: var(--base-gray), 30%;
   --palette-gray-75: var(--base-gray), 25%;
+  --palette-gray-78: var(--base-gray), 22%;
   --palette-gray-80: var(--base-gray), 20%;
   --palette-gray-85: var(--base-gray), 15%;
   --palette-gray-88: var(--base-gray), 12%;
@@ -338,10 +355,11 @@ h6 {
   /* Branding */
   --primary:var(--palette-blue-20);
   --secondary: var(--palette-gray-10);
-  --tertiary: var(--palette-gray-100);
+  --tertiary: var(--palette-customgray-98);
+  --fourthBrandColor: var(--palette-gray-75);
 
   /* Background color for `<body>` */
-    --body-bg: var(--);
+    --body-bg: var(--palette-customgray-98);
 
   /* Global text color on `<body>`. */
     --text-color: white;
@@ -354,4 +372,26 @@ h6 {
 /* Link hover decoration. */
     --link-hover-decoration: white;
 
+    
+
+    --content-bg-color:#fff;
+
+/*Padding margins*/
+    --layout-top-pd:var(--space-5);
+    --aside-inner-pd:var(--space-4);
+    --aside-outer-pd: var(--space-3);
+    --aside-top-pd:var(--layout-top-pd);
+
 }
+
+/* Typography */
+/* https: //www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+ html {
+   font-size: 100%;
+ }
+
+ body {
+   font-size: 1rem;
+ }
+
+ 

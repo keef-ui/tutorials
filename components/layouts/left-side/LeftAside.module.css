@@ -11,8 +11,7 @@
     z-index: 1;
     width: 19rem;
     height: 100%;
-    padding-right: 32px;
-    padding-left: 16px;
+
     transition: transform 400ms ease 0s, visibility 400ms ease 0s;
 }
 
@@ -26,5 +25,18 @@
 
 
 .left_aside aside {
-    padding-top: var(--space-5);
+    /* padding-top: var(--space-5);
+    padding-left: var(--space-4);
+    padding-right: var(--space-3); */
+    padding: var(--aside-top-pd) var(--aside-outer-pd) var(--aside-top-pd) var(--aside-inner-pd);
+}
+
+.open {
+    display: none;
+}
+
+@media (max-width: 70rem) {
+.open {
+        display: inline-block;
+    }
 }

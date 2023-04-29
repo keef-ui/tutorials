@@ -9,9 +9,26 @@
 }
 
 
-.layout main {
+/* .layout main {
   padding-top: var(--space-5);
+} */
+
+
+
+@media (max-width: 70rem) {
+
+  .layout {
+      grid-template-columns: 5rem 1fr;
+      -webkit-box-pack: initial;
+      justify-content: initial;
+      max-width: 100rem;
+      transition: all ease-in-out 0.25s;
+
+    }
+            .layout:hover {
+              grid-template-columns: 10rem 1fr;
+      
+      
+            }
+       
 }
-
-
-

@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps = async (props) => {
   };
 };
 export const getStaticPaths: GetStaticPaths = async () => {
-  // CHANGE needed: the 'post' in { params: { post: "some-random-path" } } is refering to the file
+  // CHANGE needed: the 'post' in { params: { post: "some-random-path" } } is refering to the file ie [post].tsx
   return {
     paths: [
       { params: { post: "article_1" } },

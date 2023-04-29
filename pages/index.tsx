@@ -10,6 +10,26 @@ import Main from "../components/layouts/main-content";
 import RightAside from "../components/layouts/right-side";
 
 
+
+// ---------------------------------------------------
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { MDXProvider } from "@mdx-js/react";
+import MDX from "@mdx-js/runtime";
+
+
+const components = {
+  h1: (props) => (
+    <h1 className="fffffffffffffffff" style={{ color: "red" }}>
+      {props.children}
+    </h1>
+  ),
+  p: (props) => <p style={{ color: "green" }}>{props.children}</p>,
+}; 
+
+// -------------------------------------------------------------------------------
+
 export const course_a = [
   {
     id: 3,
@@ -24,7 +44,7 @@ export const course_a = [
     href: "5string",
     title: "5tttttstring",
     extraContent: [
-      { id: 4, href: "aaaExtrastring", title: "aaaExtraTitle" },
+      { id: 4, href: "article_1", title: "article_1" },
       { id: 4, href: "aaaExtrastring", title: "Working with Mobile Devices" },
       { id: 4, href: "aaaExtrastring", title: "aaaExtraTitle" },
       {
@@ -37,7 +57,23 @@ export const course_a = [
   { id: 5, href: "5string", title: "5tttttstring" },
 ];
 
-const Home: NextPage = () => {
+export const leftAsideItems = [
+  {
+    id: 3,
+    href: "string",
+    title: "Right Menu iteme1"
+  },
+  { id: 5, href: "5string", title: "5tttttstring" },
+  { id: 5, href: "5string", title: "Item 2" },
+  {
+    id: 5,
+    href: "5string",
+    title: "5tttttstring",
+  },
+  { id: 5, href: "5string", title: "Item 3" },
+];
+
+const Home: NextPage = (props) => {
   return (
     <div className={styles.layout}>
       <Head>
@@ -47,104 +83,29 @@ const Home: NextPage = () => {
       </Head>
       <LeftAside list={course_a} heading={"React Three Fiber"} />
       <Main>
-          <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1>
-          <p className={styles.description}>
-            Now that we've covered all of the theory when it comes to Flexbox,
-            let's see how we can use it in some practical every-day examples! If
-            you prefer, you can treat these as exercises, and try to complete
-            them before watching the videos. Totally up to you!
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information </p>
-          </a>
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn Next.js in an interactive course with quizzes!</p>
-          </a>
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>{" "}
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <MDXProvider components={components}>
+          <MDX components={components}>{props.mdx}</MDX>
+        </MDXProvider>
       </Main>
       <RightAside>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information </p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <SideMenuList list={leftAsideItems} />
       </RightAside>
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const folderPath = path.join(process.cwd(), "content");
+  const filePath = path.join(folderPath, `${'article_1'}.mdx`);
+  const rawFileSource = fs.readFileSync(filePath);
+  const { content, data } = matter(rawFileSource);
+  return {
+    props: {
+      mdx: content,
+      metaInformation: data,
+    },
+  };
+};
+
 
 export default Home

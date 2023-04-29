@@ -1,5 +1,13 @@
 .right_aside {
-    padding-top: var(--space-5);
-    background-color: red;
+    padding: var(--aside-top-pd) var(--aside-outer-pd) var(--aside-top-pd) var(--aside-inner-pd);
+
 }
 
+
+@media (max-width: 70rem) {
+.right_aside {
+        padding-top: var(--layout-top-pd);
+        display:none;
+
+    }
+}

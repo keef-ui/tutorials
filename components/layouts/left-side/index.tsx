@@ -11,14 +11,15 @@ type Props = {
 };
 
 export default function LeftAside({ children, props, list, heading }: Props) : JSX.Element {
-  return(
-  <div className={styles.left_aside}>
-    <aside>
-      <BrandingHeader />
-      <h2>{heading}</h2>
+  return (
+    <div className={styles.left_aside}>
+      <span className={styles.open}>&#9776; open</span>
+      <aside>
+        <BrandingHeader />
+        <h2>{heading}</h2>
 
-      <SideMenuList list={list} />
-    </aside>
-  </div>
-  )
+        <SideMenuList list={list} />
+      </aside>
+    </div>
+  );
 }
