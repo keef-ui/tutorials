@@ -41,6 +41,7 @@ export const getServerSideProps: GetServerSideProps<SubjectProps> = async ({
   const { subject } = params;
 
   const allowedSubjects = ["subject1", "subject2", "subject3"];
+   
   if (!allowedSubjects.includes(subject[0])) {
     return {
       notFound: true,
