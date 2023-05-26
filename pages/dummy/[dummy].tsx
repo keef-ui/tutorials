@@ -17,7 +17,7 @@ import {
 
 const Test = () => <>This is my TEST Componnet 12345678 </>;
 
-export default function Blog({ post: { source, frontmatter } }) {
+export default function Blog({ post: { source, frontmatter } } :{ post: any}) {
   console.log(frontmatter.publishedAt);
   return (
     <React.Fragment>
@@ -38,7 +38,7 @@ export default function Blog({ post: { source, frontmatter } }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params } : {params : any}) {
   //fetch the particular file based on the slug
   const { dummy } = params;
   const { content, frontmatter } = await getArticleFromSlug(dummy);
@@ -78,7 +78,7 @@ function dayjs(publishedAt: any) {
 export async function getStaticPaths() {
   // getting all paths of each article as an array of
   // objects with their unique slugs
-  const paths = (await getSlug()).map((dummy) => ({ params: { dummy } }));
+  const paths = (await getSlug()).map((dummy : any) => ({ params: { dummy } }));
 
 
   return {

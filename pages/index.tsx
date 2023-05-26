@@ -8,6 +8,7 @@ import {BrandingHeader} from '../components/header/branding'
 import LeftAside from '../components/layouts/left-side'
 import Main from "../components/layouts/main-content";
 import RightAside from "../components/layouts/right-side";
+import { GetStaticProps } from "next";
 
 
 
@@ -20,12 +21,12 @@ import MDX from "@mdx-js/runtime";
 
 
 const components = {
-  h1: (props) => (
+  h1: (props : any) => (
     <h1 className="fffffffffffffffff" style={{ color: "red" }}>
       {props.children}
     </h1>
   ),
-  p: (props) => <p style={{ color: "green" }}>{props.children}</p>,
+  p: (props : any) => <p style={{ color: "green" }}>{props.children}</p>,
 }; 
 
 // -------------------------------------------------------------------------------
@@ -73,7 +74,7 @@ export const leftAsideItems = [
   { id: 5, href: "5string", title: "Item 3" },
 ];
 
-const Home: NextPage = (props) => {
+const Home: NextPage = (props : any) => {
   return (
     <div className={styles.layout}>
       <Head>
