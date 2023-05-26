@@ -18,17 +18,28 @@
 @media (max-width: 70rem) {
 
   .layout {
-      grid-template-columns: 5rem 1fr;
+      grid-template-columns: 12rem 1fr;
       -webkit-box-pack: initial;
       justify-content: initial;
       max-width: 100rem;
       transition: all ease-in-out 0.25s;
 
     }
-            .layout:hover {
-              grid-template-columns: 10rem 1fr;
-      
-      
-            }
+    .layout:hover {
+      grid-template-columns: 5rem 1fr;
+
+
+    }
+
+         .layout aside {
+          transition: all ease-in-out 1.25s;
+         }
+         
+    .layout:hover aside {
+      position:absolute;
+      transform: translateX(-300px);
+    }
+
+
        
 }
