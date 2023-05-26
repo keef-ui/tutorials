@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
+import { ParsedUrlQuery } from "querystring";
 
 type SubjectProps = {
   subject: string;
@@ -35,10 +36,14 @@ const SubjectPage: NextPage<SubjectProps> = ({ subject, subjectData }) => {
   );
 };
 
+
+interface Params extends ParsedUrlQuery {
+  subject: string;
+}
 export const getServerSideProps: GetServerSideProps<SubjectProps> = async ({
   params,
 }) => {
-  const { subject } = params;
+  const { subject } = params as Params ;
 
   const allowedSubjects = ["subject1", "subject2", "subject3"];
    
