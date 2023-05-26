@@ -3,7 +3,12 @@ import styles from '../../styles/Home.module.css'
 
 //TO:Do this should be very basic lists rendering componnt. REfactor out links etc
 
-interface Item {id:number ; title: string ; cssClass ?: string ;}
+interface Item {
+  id: number;
+  title: string;
+  cssClass?: string;
+  href: string;
+}
 
  const List = ({ list } : { list:Item[] }) => (
   <ol>
