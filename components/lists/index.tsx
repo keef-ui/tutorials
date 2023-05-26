@@ -8,6 +8,7 @@ interface Item {
   title: string;
   cssClass?: string;
   href: string;
+  extraContent:string;
 }
 
  const List = ({ list } : { list:Item[] }) => (
