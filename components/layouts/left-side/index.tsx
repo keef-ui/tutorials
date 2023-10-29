@@ -8,11 +8,13 @@ type Props = {
   props ?: any;
   list:any;
   heading:string;
+  onSlidein:any;
+  onSlideout:any;
 };
 
-export default function LeftAside({ children, props, list, heading }: Props) : JSX.Element {
+export default function LeftAside({ children, props, list, heading, onSlidein,onSlideout }: Props) : JSX.Element {
   return (
-    <div className={styles.left_aside}>
+    <div className={styles.left_aside} onMouseOver={onSlidein} onMouseOut={onSlideout}>
       <span className={styles.open}>&#9776; open</span>
       <aside>
         <BrandingHeader />
