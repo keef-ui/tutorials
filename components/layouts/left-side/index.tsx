@@ -1,6 +1,8 @@
 import styles from "./LeftAside.module.css"
 import { BrandingHeader } from "../../header/branding";
 import SideMenuList from '../../aside-menulist';
+import Svgicon from '../../svg/menu-icon/menu-icon'
+import { useState } from "react";
 // import {course_a} from '../../../pages'
 
 type Props = {
@@ -13,11 +15,11 @@ type Props = {
 };
 
 export default function LeftAside({ children, props, list, heading, onSlidein,onSlideout }: Props) : JSX.Element {
+  const {open,setOpen} = useState(false)
   return (
-    <div className={styles.left_aside} onMouseOver={onSlidein} onMouseOut={onSlideout}>
-      <span className={styles.open}>&#9776; open</span>
+    <div className={open ? `styles.left_aside styles.open` : `styles.left_aside` } >
       <aside>
-        <BrandingHeader />
+        <BrandingHeader  open={open} setOpen={setOpen}/>
         <h2>{heading}</h2>
 
         <SideMenuList list={list} />

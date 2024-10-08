@@ -2,3 +2,15 @@
     width: 220px;
     /* height: 80%; */
 }
+
+.menuicon svg {
+    fill:white;
+}
+
+@media (max-width: 70rem) {
+    .logo{
+            display: inline-block;
+            transform: translateX(-235px);
+           
+        }
+    }

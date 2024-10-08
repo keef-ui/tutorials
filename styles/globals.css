@@ -382,6 +382,9 @@ h6 {
     --aside-outer-pd: var(--space-3);
     --aside-top-pd:var(--layout-top-pd);
 
+/* Background colors */
+--bg-red:red;    
+
 }
 
 /* Typography */
